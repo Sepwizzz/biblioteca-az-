@@ -1,0 +1,31 @@
+﻿@model biblioteca.Models.Libros
+
+@{
+    ViewData["Title"] = "Detalle del Libro";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Detalle del Libro</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Título</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                        <dt class="col-sm-4">Autor</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Autor.Nombre)</dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-warning">Editar</a>
+                        <a asp-action="Index" class="btn btn-secondary">Volver a lista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

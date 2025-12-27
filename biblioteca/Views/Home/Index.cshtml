@@ -1,0 +1,40 @@
+﻿@model IEnumerable<biblioteca.Models.Libros>
+
+@{
+    ViewData["Title"] = "Biblioteca";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">📚 libros</h1>
+        <p class="lead">Lista de libros y sus autores</p>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var libro in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@libro.Titulo</h5>
+                            <p class="card-text">
+                                <strong>Autor:</strong> @(libro.Autor != null ? libro.Autor.Nombre : "Sin autor")
+                            </p>
+                        </div>
+                        @* <div class="card-footer text-muted text-end">
+                            ID: @libro.ID
+                        </div> *@
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            No hay libros registrados.
+        </div>
+    }
+</div>

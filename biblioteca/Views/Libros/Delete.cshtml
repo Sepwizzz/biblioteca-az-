@@ -1,0 +1,37 @@
+﻿@model biblioteca.Models.Libros
+
+@{
+    ViewData["Title"] = "Eliminar Libro";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">Eliminar Libro</h4>
+                </div>
+                <div class="card-body">
+                    <h5>¿Está seguro de eliminar este libro?</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Título</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                        <dt class="col-sm-4">Autor</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Autor.Nombre)</dd>
+                    </dl>
+
+                    <form asp-action="Delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="ID" />
+                        <div class="d-flex justify-content-between">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" />
+                            <a asp-action="Index" class="btn btn-secondary">Volver a lista</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
